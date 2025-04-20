@@ -1,0 +1,53 @@
+{
+  "employee_code": {
+    "nullable": true,
+    "required": true,
+    "type": "string",
+    "max": 255
+  },
+  "address_type": {
+    "nullable": true,
+    "required": true,
+    "type": "string"
+  },
+  "name": {
+    "nullable": true,
+    "type": "string",
+    "max": 255
+  },
+  "address": {
+    "nullable": true,
+    "required": true,
+    "type": "string",
+    "max": 255
+  },
+  "country_id": {
+    "nullable": true,
+    "required": true,
+    "type": "string"
+  },
+  "state_id": {
+    "nullable": true,
+    "required": true,
+    "type": "string"
+  },
+  "city_id": {
+    "nullable": true,
+    "required": true,
+    "type": "string"
+  },
+  "pin_code": {
+    "nullable": true,
+    "required": true,
+    "type": "string",
+    "pattern": "^[1-9][0-9]{5}$"
+  },
+  "mobile_no": {
+    "type": "phone",
+    "nullable": true
+  },
+  "email": {
+    "type": "email",
+    "nullable": true
+  }
+}

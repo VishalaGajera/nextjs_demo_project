@@ -1,0 +1,7 @@
+import { EMPLOYEE_ROUTES_BASE_URL } from "../routes";
+
+export const EMPLOYEE_SEARCH_METADATA_ROUTES_BASE_URL = "search-metadata";
+
+export const EMPLOYEE_SEARCH_METADATA_ROUTES = {
+  get: `${EMPLOYEE_ROUTES_BASE_URL}/${EMPLOYEE_SEARCH_METADATA_ROUTES_BASE_URL}`,
+};

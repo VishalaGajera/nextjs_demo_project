@@ -1,0 +1,19 @@
+{
+    "skill_type_name": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 255
+    },
+    "skill_type_code": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 10
+    },
+    "description": {
+      "nullable": true,
+      "type": "string",
+      "max": 255
+    }
+  }

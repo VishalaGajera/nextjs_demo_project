@@ -1,0 +1,13 @@
+{
+    "industry_name": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 255
+    },
+    "description": {
+      "nullable": true,
+      "type": "string",
+      "max": 255
+    }
+  }

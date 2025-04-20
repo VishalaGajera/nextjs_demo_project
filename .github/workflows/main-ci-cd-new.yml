@@ -1,0 +1,64 @@
+name: CI/CD Pipeline - New
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install PNPM Globally
+        run: npm install -g pnpm
+
+      - name: Install Turbo Globally
+        run: npm install -g turbo
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project
+        run: turbo run build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build  # This ensures deploy only runs after build completes successfully
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}  # Use the password secret here
+          script: |
+            cd /var/sixtify-frontend/sixtify-frontend
+
+            git stash
+
+            git pull
+
+            # Ensure pm2 is installed and accessible
+            if ! command -v pm2 &> /dev/null; then
+              echo "PM2 not found, installing..."
+              npm install -g pm2
+            fi
+
+            # Restart the application with PM2
+            pm2 restart sixtify-frontend || pm2 start "pnpm start -- -p 4201" --name="sixtify-frontend"

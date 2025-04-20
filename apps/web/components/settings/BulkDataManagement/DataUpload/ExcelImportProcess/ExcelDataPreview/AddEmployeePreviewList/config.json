@@ -1,0 +1,91 @@
+{
+    "title": { "nullable": true, "type": "string" },
+    "first_name": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 10
+    },
+    "middle_name": { "nullable": true, "type": "string" },
+    "last_name": { "nullable": true, "required": true, "type": "string" },
+    "nick_name": { "nullable": true, "type": "string" },
+    "date_of_birth": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "dateValidation": {
+        "maxDate": "joining_date"
+      }
+    },
+    "gender": { "nullable": true, "type": "string" },
+    "joining_date": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "dateValidation": { 
+        "minDate": "date_of_birth",
+        "maxDate": "on_book_joining_date"
+      }
+    },
+    "on_book_joining_date": {
+      "nullable": true,
+      "type": "string",
+      "dateValidation": {
+        "minDate": "joining_date"
+      }
+    },
+    "confirmation_date": { "nullable": true, "required": true, "type": "string" },
+    "mobile_no": { "nullable": true, "required": true, "type": "string" },
+    "email": { "nullable": true, "required": true, "type": "string" },
+    "employee_code_type": { "nullable": true, "required": true, "type": "string" },
+    "employee_code_id": {
+      "nullable": true,
+      "type": "string",
+      "dependsOn": {
+        "field": "employee_code_type",
+        "value": "auto",
+        "condition": "equals"
+      }
+    },
+    "employee_code": {
+      "nullable": true,
+      "type": "string",
+      "dependsOn": {
+        "field": "employee_code_type",
+        "value": "manual",
+        "condition": "equals"
+      }
+    },
+    "punch_code": { "nullable": true, "type": "string" },
+    "business_unit_id": { "nullable": true, "required": true, "type": "string" },
+    "business_unit_location_id": {
+      "nullable": true,
+      "type": "string",
+      "dependsOn": {
+        "field": "business_unit_id",
+        "condition": "equalsWithEmpty"
+      }
+    },
+    "department_id": { "nullable": true, "required": true, "type": "string" },
+    "sub_department_id": {
+      "nullable": true,
+      "type": "string",
+      "dependsOn": {
+        "field": "department_id",
+        "condition": "equalsWithEmpty"
+      }
+    },
+    "designation_id": { "nullable": true, "required": true, "type": "string" },
+    "grade_id": { "nullable": true, "type": "string" },
+    "work_type_id": { "nullable": true, "type": "string" },
+    "skill_type_id": { "nullable": true, "type": "string" },
+    "reporting_manager_id": { "nullable": true, "required": true, "type": "string" },
+    "leave_plan_id": { "nullable": true, "required": true, "type": "string" },
+    "shift_type_id": { "nullable": true, "required": true, "type": "string" },
+    "bank_shift_type_id": { "nullable": true, "required": true, "type": "string" },
+    "weekly_off_type_id": { "nullable": true, "required": true, "type": "string" },
+    "holiday_group_id": { "nullable": true, "required": true, "type": "string" },
+    "assigned_roles": { "type": "array" },
+    "attendance_penalty_rule_id": { "nullable": true, "type": "string" },
+    "overtime_rule_id": { "nullable": true, "type": "string" }
+}

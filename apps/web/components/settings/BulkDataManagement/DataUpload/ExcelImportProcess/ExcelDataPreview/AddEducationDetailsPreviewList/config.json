@@ -1,0 +1,46 @@
+{
+    "employee_code": {
+      "type": "string",
+      "nullable": true,
+      "required": true,
+      "max": 255
+    },
+    "qualification": {
+      "type": "string",
+      "nullable": true,
+      "required": true
+    },
+    "institute": {
+      "type": "string",
+      "nullable": true,
+      "required": true
+    },
+    "from_date": {
+      "type": "string",
+      "nullable": true,
+      "required": true,
+      "dateValidation": { 
+        "maxDate": "to_date"
+      }
+    },
+    "to_date": {
+      "type": "string",
+      "nullable": true,
+      "required": true,
+      "dateValidation": {
+        "minDate": "from_date"
+      }
+    },
+    "percentage_or_grade": {
+      "type": "string",
+      "nullable": true,
+      "required": true,
+      "pattern": "^(100(\\.0{1,2})?|[1-9]?[0-9](\\.\\d{1,2})?)?$|^[A-F][+-]?$"
+    },
+    "qualification_area": {
+      "type": "string",
+      "nullable": true,
+      "required": true,
+      "max": 255
+    }
+  }

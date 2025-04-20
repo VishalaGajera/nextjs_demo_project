@@ -1,0 +1,13 @@
+{
+    "caste_name": {
+      "nullable": true,
+      "required": true,
+      "type": "string"
+    },
+    "sub_caste_name": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 255
+    }
+  }

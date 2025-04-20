@@ -1,0 +1,24 @@
+{
+    "department_id": {
+      "nullable": true,
+      "required": true,
+      "type": "string"
+    },
+    "sub_department_code": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 10
+    },
+    "sub_department_name": {
+      "nullable": true,
+      "required": true,
+      "type": "string",
+      "max": 255
+    },
+    "description": {
+      "nullable": true,
+      "type": "string",
+      "max": 255
+    }
+  }
